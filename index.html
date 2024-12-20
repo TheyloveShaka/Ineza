@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>InezaIsAwesome.com</title>
+    <link rel="stylesheet" href="./style2.css" />
+    <style>
+      html,
+      body {
+        margin: 0px;
+        height: 100%;
+      }
+      .bg_heart {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url("https://i.pinimg.com/originals/51/d8/37/51d8374126446d495348b6032202126f.jpg");
+        background-size: 100% 100%;
+        z-index: -1;
+      }
+
+      .container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-family: cursive;
+      }
+
+      .heart {
+        position: absolute;
+        top: -50%;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -m-transform: rotate(-45deg);
+      }
+      .heart:before {
+        position: absolute;
+        top: -50%;
+        left: 0;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: 100%;
+      }
+      .heart:after {
+        position: absolute;
+        top: 0;
+        right: -50%;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: 100%;
+      }
+
+      @keyframes love {
+        0% {
+          top: 110%;
+        }
+      }
+      @-webkit-keyframes love {
+        0% {
+          top: 110%;
+        }
+      }
+      @-moz-keyframes love {
+        0% {
+          top: 110%;
+        }
+      }
+      @-ms-keyframes love {
+        0% {
+          top: 110%;
+        }
+      }
+
+      @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+      @-webkit-keyframes throb {
+        0% {
+          -webkit-transform: scale(1);
+        }
+        35% {
+          -webkit-transform: scale(1.2);
+        }
+        85% {
+          -webkit-transform: scale(1);
+        }
+      }
+
+      html {
+        display: table;
+        width: 70%;
+        height: 100vmin;
+        table-layout: fixed;
+      }
+
+      body {
+        display: table-cell;
+        vertical-align: middle;
+        font-family: "Shadows Into Light";
+        color: #111;
+      }
+
+      .wrapper {
+        width: 90vmin;
+        height: 90vmin;
+        position: relative;
+        margin: 5vmin auto;
+      }
+
+      div.throb {
+        -webkit-animation: throb 0.5s infinite;
+        animation: throb 0.5s infinite;
+        -webkit-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+      }
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"] + label {
+        width: 30vmin;
+        height: 30vmin;
+        line-height: 30vmin;
+        display: inline-block;
+        position: absolute;
+        font-size: 30vmin;
+        text-align: center;
+        transition: all 1s ease;
+      }
+
+      label {
+        text-shadow: 3vmin 3vmin 10vmin rgba(0, 0, 0, 0.5);
+      }
+      label:hover {
+        color: #c32a2a;
+        cursor: pointer;
+      }
+
+      #ck1 + label,
+      #ck2 + label {
+        border-radius: 50%;
+        top: 0;
+      }
+
+      #ck1:checked + label,
+      #ck2:checked + label,
+      #ck3:checked + label {
+        background: #c32a2a;
+        font-size: 0;
+        transition: all 1s ease;
+      }
+
+      #ck1 + label {
+        left: 0;
+      }
+
+      #ck2 + label {
+        right: 10vmin;
+      }
+
+      #ck1:checked + label,
+      #ck2:checked + label {
+        width: 54vmin;
+        height: 54vmin;
+        border-radius: 50%;
+        line-height: 54vmin;
+      }
+
+      #ck2:checked + label {
+        right: 0;
+      }
+
+      #ck3 + label {
+        bottom: 5vmin;
+        left: 50%;
+        margin: 0 -9vmin;
+        background-color: white;
+      }
+
+      #ck3:checked + label {
+        width: 49.5vmin;
+        height: 49.5vmin;
+        bottom: 17.28vmin;
+        left: 29.16vmin;
+        transform: rotate(45deg);
+        line-height: 4.86vmin;
+      }
+
+      span {
+        display: inline-block;
+        text-align: left;
+        position: absolute;
+        bottom: 0vmin;
+        left: 0vmin;
+        margin-bottom: -3vmin;
+        font-size: 6vmin;
+        color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg_heart"></div>
+
+    <div class="container">
+      <h2 id="text1"></h2>
+    </div>
+
+    <form>
+      <div class="wrapper">
+        <input type="checkbox" id="ck1" onClick="check()" />
+        <label for="ck1">I</label>
+        <input type="checkbox" id="ck2" onClick="check()" />
+        <label for="ck2">love</label>
+        <input type="checkbox" id="ck3" onClick="check()" />
+        <label for="ck3">you,Ineza</label>
+        <span>(Click on words)</span>
+      </div>
+    </form>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    var love = setInterval(function () {
+      var r_num = Math.floor(Math.random() * 40) + 1;
+      var r_size = Math.floor(Math.random() * 65) + 10;
+      var r_left = Math.floor(Math.random() * 100) + 1;
+      var r_bg = Math.floor(Math.random() * 25) + 100;
+      var r_time = Math.floor(Math.random() * 5) + 5;
+      $(".bg_heart").append(
+        "<div class='heart' style='width:" +
+          r_size +
+          "px;height:" +
+          r_size +
+          "px;left:" +
+          r_left +
+          "%;background:rgba(255," +
+          (r_bg - 25) +
+          "," +
+          r_bg +
+          ",1);-webkit-animation:love " +
+          r_time +
+          "s ease;-moz-animation:love " +
+          r_time +
+          "s ease;-ms-animation:love " +
+          r_time +
+          "s ease;animation:love " +
+          r_time +
+          "s ease'></div>"
+      );
+
+      $(".bg_heart").append(
+        "<div class='heart' style='width:" +
+          (r_size - 10) +
+          "px;height:" +
+          (r_size - 10) +
+          "px;left:" +
+          (r_left + r_num) +
+          "%;background:rgba(255," +
+          (r_bg - 25) +
+          "," +
+          (r_bg + 25) +
+          ",1);-webkit-animation:love " +
+          (r_time + 5) +
+          "s ease;-moz-animation:love " +
+          (r_time + 5) +
+          "s ease;-ms-animation:love " +
+          (r_time + 5) +
+          "s ease;animation:love " +
+          (r_time + 5) +
+          "s ease'></div>"
+      );
+    }, 500);
+
+    var i = 0;
+    var txt1 =
+      "                     Hey boo  <<  <<<   I really miss you   > i know that you're mad at me           < And you have every right to.  <<   like a flower crushed beneath careless steps < I've bruised what was meant to be cherised << They say Christmas is the most wonderfull time of the year ,                                             yet without you its magic feels hollow and bare     >            Give me a second chance to make this season and afterwards whole <<                                ,to mend , to nurture  , to love you highkey    >                   I've sent this as one of the ways i can best express myself and how sorry i am   <<                    i vow to cherish you              and like the North star that guided the 3 wise men,                    i promise to use love as my compass >                  I am really sorry! (and for all the dad code in this)!|                  <<<<  ";
+    var speed = 50;
+    typeWriter();
+    function typeWriter() {
+      if (i < txt1.length) {
+        if (txt1.charAt(i) == "<")
+          document.getElementById("text1").innerHTML += "</br>";
+        else if (txt1.charAt(i) == ">")
+          document.getElementById("text1").innerHTML = "";
+        else if (txt1.charAt(i) == "|") {
+          ("");
+        } else document.getElementById("text1").innerHTML += txt1.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+  </script>
+  <script>
+    function check() {
+      if (
+        document.forms[0].elements[0].checked == true &&
+        document.forms[0].elements[1].checked == true &&
+        document.forms[0].elements[2].checked == true
+      ) {
+        if (!$(".wrapper").hasClass("throb")) {
+          // Do things on Nav Close
+          $(".wrapper").addClass("throb");
+        }
+      } else {
+        if ($(".wrapper").hasClass("throb")) {
+          // Do things on Nav Close
+          $(".wrapper").removeClass("throb");
+        }
+      }
+    }
+  </script>
+</html>
